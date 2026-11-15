@@ -1,0 +1,55 @@
+{
+  "name": "rx7700xt-sdxl-1024-s20",
+  "checkpoint": "Juggernaut-XL_v9_RunDiffusionPhoto_v2.safetensors",
+  "backend": "vulkan1",
+  "split_mode": null,
+  "resolution": "1024x1024",
+  "steps": 20,
+  "seed": 42,
+  "runs": 3,
+  "load_s": 0.55,
+  "median_wall_s": 23.078,
+  "median_engine_total_s": 22.75,
+  "median_condition_s": 0.0,
+  "median_sampling_s": 18.95,
+  "median_decode_s": 3.77,
+  "min_sampling_s": 18.85,
+  "max_sampling_s": 18.97,
+  "peak_vram_gb": {
+    "vulkan1": 6.57
+  },
+  "per_run": [
+    {
+      "measured": true,
+      "wall_s": 22.829,
+      "engine_total_s": 22.63,
+      "condition_s": 0.0,
+      "sampling_s": 18.85,
+      "decode_s": 3.76,
+      "progress_elapsed_ms": 22778,
+      "images": 1
+    },
+    {
+      "measured": true,
+      "wall_s": 23.078,
+      "engine_total_s": 22.75,
+      "condition_s": 0.0,
+      "sampling_s": 18.95,
+      "decode_s": 3.78,
+      "progress_elapsed_ms": 22888,
+      "images": 1
+    },
+    {
+      "measured": true,
+      "wall_s": 23.082,
+      "engine_total_s": 22.76,
+      "condition_s": 0.0,
+      "sampling_s": 18.97,
+      "decode_s": 3.77,
+      "progress_elapsed_ms": 22908,
+      "images": 1
+    }
+  ],
+  "log": "/opt/AssetGeneration/game-art/logs/bench-rx7700xt-sdxl-1024-s20.log",
+  "images_dir": "/opt/AssetGeneration/game-art/logs/benchmarks/images/rx7700xt-sdxl-1024-s20"
+}

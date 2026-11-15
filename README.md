@@ -47,6 +47,15 @@ The default systemd service was restored to the MI50 (`vulkan0`) after testing.
 | SD1.5 epicphotogasm | 512² | 20 | MI50 | 5.74 s | 0.29 | 1.03 s | **7.02 s** | 2.0 GB |
 | SD1.5 epicphotogasm | 512² | 20 | RX 7700 XT | 3.67 s | 0.18 | 0.70 s | **4.52 s** | 2.1 GB |
 
+![Single-card generation latency](charts/single-card-wall-time.svg)
+
+*Figure 1 — End-to-end job wall time per card. Labels above each group show the
+RX 7700 XT speedup over the MI50.*
+
+![Engine phase breakdown](charts/phase-breakdown.svg)
+
+*Figure 2 — Sampling vs VAE decode time for every measured workload.*
+
 ### Findings
 
 - **RX 7700 XT is much faster:** ~**2.35×** faster end-to-end at SDXL 1024²/20
@@ -80,6 +89,11 @@ memory budget (~80/20), not to card speed; VAE stays on one GPU.
 
 ¹ one measured run.
 
+![Single task split across both cards](charts/dual-single-task.svg)
+
+*Figure 3 — A single job on one card vs split across both. The split is slower
+than the RX 7700 XT alone in every case.*
+
 **Verdict: do not split a single job across these cards.** The GPUs are
 heterogeneous, the layer split follows memory rather than throughput, and
 cross-device activations travel through host memory (no P2P). A single task can
@@ -95,6 +109,11 @@ concurrently. Measured with SDXL 1024²/20 steps, one job per card:
 | --- | ---: | ---: |
 | Sequential (MI50, then 7700 XT) | 69.48 s | 1.00× |
 | Parallel (both cards at once) | 47.17 s | **1.47×** |
+
+![Two jobs in parallel](charts/dual-parallel.svg)
+
+*Figure 4 — Two independent SDXL jobs: sequential vs one job per card in
+parallel.*
 
 Per-job latency is unchanged (MI50 ~46.9 s, RX 7700 XT ~22.9 s). This is the
 practical way to use both cards: throughput scales for batches of independent
@@ -144,6 +163,13 @@ scripts/gpu-parallel-benchmark.py
 
 Raw JSON results and generated benchmark images are in
 `/opt/AssetGeneration/game-art/logs/benchmarks/`.
+
+Chart inputs are snapshotted in `data/`, and the rendered charts live in
+`charts/` (SVG for the report, PNG previews included). Regenerate with:
+
+```bash
+python3 scripts/make_charts.py
+```
 
 ## Configuration changes made
 

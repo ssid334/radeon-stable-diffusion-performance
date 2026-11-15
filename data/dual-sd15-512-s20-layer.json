@@ -1,0 +1,46 @@
+{
+  "name": "dual-sd15-512-s20-layer",
+  "checkpoint": "epicphotogasm_v1.safetensors",
+  "backend": "vulkan0&vulkan1",
+  "split_mode": "layer",
+  "resolution": "512x512",
+  "steps": 20,
+  "seed": 42,
+  "runs": 2,
+  "load_s": 0.55,
+  "median_wall_s": 6.78,
+  "median_engine_total_s": 6.56,
+  "median_condition_s": 0.0,
+  "median_sampling_s": 5.52,
+  "median_decode_s": 1.03,
+  "min_sampling_s": 5.52,
+  "max_sampling_s": 5.52,
+  "peak_vram_gb": {
+    "vulkan0": 1.57,
+    "vulkan1": 0.57
+  },
+  "per_run": [
+    {
+      "measured": true,
+      "wall_s": 6.78,
+      "engine_total_s": 6.56,
+      "condition_s": 0.0,
+      "sampling_s": 5.52,
+      "decode_s": 1.03,
+      "progress_elapsed_ms": 6599,
+      "images": 1
+    },
+    {
+      "measured": true,
+      "wall_s": 6.779,
+      "engine_total_s": 6.56,
+      "condition_s": 0.0,
+      "sampling_s": 5.52,
+      "decode_s": 1.03,
+      "progress_elapsed_ms": 6597,
+      "images": 1
+    }
+  ],
+  "log": "/opt/AssetGeneration/game-art/logs/bench-dual-sd15-512-s20-layer.log",
+  "images_dir": "/opt/AssetGeneration/game-art/logs/benchmarks/images/dual-sd15-512-s20-layer"
+}

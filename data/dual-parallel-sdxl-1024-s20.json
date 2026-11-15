@@ -1,0 +1,24 @@
+{
+  "workload": {
+    "checkpoint": "Juggernaut-XL_v9_RunDiffusionPhoto_v2.safetensors",
+    "resolution": "1024x1024",
+    "steps": 20
+  },
+  "sequential": {
+    "mi50": {
+      "wall_s": 46.396,
+      "elapsed_ms": 46184
+    },
+    "rx7700xt": {
+      "wall_s": 23.085,
+      "elapsed_ms": 22865
+    },
+    "pair_span_s": 69.482
+  },
+  "parallel": {
+    "mi50_elapsed_ms": 46902,
+    "rx7700xt_elapsed_ms": 22887,
+    "pair_span_s": 47.166
+  },
+  "speedup": 1.473
+}
